@@ -3,6 +3,8 @@ package com.healthaiharbor.ai.userservice.modal;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,5 +22,6 @@ public class Permission {
     private String name;
 
     @ManyToMany(mappedBy = "permissions")
-    private Set<Role> roles;
+    private List<Role> roles = new ArrayList<>();
+
 }

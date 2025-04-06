@@ -1,4 +1,9 @@
 package com.healthaiharbor.ai.userservice.dto;
 
-public record RefreshTokenDTO(String refreshToke) {
+import jakarta.validation.constraints.NotBlank;
+
+public record RefreshTokenDTO(
+        @NotBlank(message = "Refresh token must not be blank")
+        String refreshToken
+) {
 }

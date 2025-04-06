@@ -3,7 +3,9 @@ package com.healthaiharbor.ai.userservice.modal;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,7 +23,7 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
-    private Set<User> users = new HashSet<>();
+    private List<User> users = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -29,7 +31,7 @@ public class Role {
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
-    private Set<Permission> permissions = new HashSet<>();
+    private List<Permission> permissions = new ArrayList<>();
 
     public void addPermission(Permission permission) {
         this.permissions.add(permission);

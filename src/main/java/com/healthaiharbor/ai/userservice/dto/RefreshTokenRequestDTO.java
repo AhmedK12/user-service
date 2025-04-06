@@ -1,4 +1,4 @@
 package com.healthaiharbor.ai.userservice.dto;
 
-public record RefreshTokenRequestDTO(String RefreshToken) {
+public record RefreshTokenRequestDTO(String refreshToken) {
 }
